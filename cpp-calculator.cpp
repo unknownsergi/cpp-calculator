@@ -27,30 +27,52 @@ int divide(int a, int b)
     }
 }
 
+char menu()
+{
+
+    char option;
+
+    std::cout << "Menu: \n\n";
+    std::cout << "1. Standard Calculator\n";
+    std::cout << "2. Cientific Calcualtor\n";
+    std::cout << "3. Programmer\n";
+    std::cout << "4. Temperature\n";
+    std::cout << "5. Time\n";
+    std::cout << "6. Data\n";
+    std::cout << "7. Angle\n";
+    std::cout << "8. Speed\n\n";
+
+    std::cout << "Option: ";
+    std::cin >> option;
+    return option;
+}
+
 int main()
 {
-    std::cout << "TWO NUMBER CALCULATOR" << std::endl;
-    std::cout << "======================" << std::endl;
     int num1 = 0;
     int num2 = 0;
     char char1 = 0;
     int resultado = 0;
     int temp = 0;
 
-    std::cout << "Enter the first number: " << "\n";
+    std::cout << "TWO NUMBER CALCULATOR" << std::endl;
+    std::cout << "======================" << std::endl;
+    menu();
+
+    std::cout << "Enter the first number: ";
     std::cin >> num1;
 
-    std::cout << "Enter the second number: " << "\n";
+    std::cout << "Enter the second number: ";
     std::cin >> num2;
 
     if (num2 == 0)
     {
-        std::cout << "Enter +, -, *: " << "\n";
+        std::cout << "Enter +, -, *: ";
         temp = 1;
     }
     else
     {
-        std::cout << "Enter +, -, *, /: " << "\n";  
+        std::cout << "Enter +, -, *, /: ";  
         temp = 2;
     }
 
