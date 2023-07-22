@@ -1,34 +1,6 @@
 #include <iostream>
-#include <sstream>
-#include <string>
-#include "cpp-calculator.h"
-
-int add(int a, int b)
-{
-    return a + b;
-}
-
-int substract(int a, int b)
-{
-    return a - b;
-}
-
-int multiply(int a, int b)
-{
-    return a * b;
-}
-
-int divide(int a, int b)
-{
-    if (b == 0)
-    {
-        return NULL;
-    }
-    else
-    {
-        return a / b;
-    }
-}
+#include "Functions.h"
+#include "Calculator.h"
 
 int menu()
 {
@@ -50,7 +22,7 @@ int menu()
     return option;
 }
 
-void StandardCalculator(int num1, int num2, int temp, char char1, int resultado)
+void StandardCalculator(double num1, double num2, int temp, char char1, double resultado)
 {
     char exit;
     do
@@ -90,24 +62,26 @@ void StandardCalculator(int num1, int num2, int temp, char char1, int resultado)
             }
         }
 
+        Calculator calc(num1, num2);
+
         if (char1 == '+')
         {
-            resultado = add(num1, num2);
+            resultado = calc.add();
         }
 
         if (char1 == '-')
         {
-            resultado = substract(num1, num2);
+            resultado = calc.substract();
         }
 
         if (char1 == '*')
         {
-            resultado = multiply(num1, num2);
+            resultado = calc.multiply();
         }
 
         if (char1 == '/')
         {
-            resultado = divide(num1, num2);
+            resultado = calc.divide();
         }
 
         std::cout << "\nResultado: " << resultado << std::endl;
@@ -115,36 +89,4 @@ void StandardCalculator(int num1, int num2, int temp, char char1, int resultado)
         std::cin >> exit;
         system("cls");
     } while (exit != 69 && exit != 101);
-}
-
-int main()
-{
-    int num1 = 0;
-    int num2 = 0;
-    char char1 = 0;
-    int resultado = 0;
-    int menuOption;
-    int temp = 0;
-
-    std::cout << "TWO NUMBER CALCULATOR" << std::endl;
-    std::cout << "======================" << std::endl;
-    do {
-        menuOption = menu();
-        if (menuOption == 49)
-        {
-            system("cls");
-            StandardCalculator(num1, num2, temp, char1, resultado);
-        }
-        if (menuOption == 50)
-        {
-            system("cls");
-            std::cout << "\nPrueba Calculadora cientifica\n";
-        }
-        system("pause");
-        system("cls");
-    } while (menuOption != 69);
-
-
-   
-
 }
