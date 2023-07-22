@@ -2,6 +2,7 @@
 #include "Functions.h"
 #include "Calculator.h"
 
+
 int menu()
 {
     char option;
@@ -27,12 +28,21 @@ void StandardCalculator(double num1, double num2, int temp, char char1, double r
     char exit;
     do
     {
-
         std::cout << "Enter the first number: " << std::endl;
         std::cin >> num1;
+        while (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(100, '\n');
+        }
 
         std::cout << "Enter the second number: ";
         std::cin >> num2;
+        while (std::cin.fail())
+        {
+            std::cin.clear();
+            std::cin.ignore(100, '\n');
+        }
 
         if (num2 == 0)
         {
